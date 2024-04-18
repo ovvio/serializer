@@ -1,0 +1,17 @@
+auth.json
+*.gitignore.*
+
+###> The others
+composer.lock
+
+/.vscode
+/.idea
+/.history
+###> The others
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/vendor/
+###< symfony/framework-bundle ###
