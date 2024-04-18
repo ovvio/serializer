@@ -6,8 +6,9 @@ namespace Ovvio\Component\Serializer;
 
 final class SerializerFactory
 {
-    public static function create(): SerializerInterface
-    {
-        return new Serializer();
+    public static function create(
+        null|string $datetimeFormat = SerializerDef::DEFAULT_DATE_TIME_FORMAT,
+    ): SerializerInterface {
+        return new Serializer(datetimeFormat: $datetimeFormat);
     }
 }

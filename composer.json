@@ -4,6 +4,7 @@
     "license": "proprietary",
     "type": "library",
     "keywords": ["serializer"],
+    "homepage": "https://ovvio.pro",
     "authors": [
         {
             "name": "Nazir Khusnutdinov",
@@ -11,24 +12,19 @@
             "role": "Owner"
         }
     ],
+    "prefer-stable": true,
+    "minimum-stability": "dev",
     "require": {
-        "php": ">=8.2",
-        "symfony/serializer": "^7.0"
+        "php": ">=8.4",
+        "symfony/serializer": "^7.2",
+        "symfony/property-access": "^7.2"
     },
     "autoload": {
         "psr-4": { "Ovvio\\Component\\Serializer\\": "src/" }
     },
-    "autoload-dev": {
-        "psr-4": { "Ovvio\\Component\\Serializer\\Tests\\": "tests/" }
-    },
     "config": {
         "allow-plugins": {
             "symfony/flex": true
-        }
-    },
-    "extra": {
-        "branch-alias": {
-            "dev-main": "1.x-dev"
         }
     }
 }

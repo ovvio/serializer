@@ -4,41 +4,62 @@ declare(strict_types=1);
 
 namespace Ovvio\Component\Serializer;
 
+use LogicException;
+use stdClass;
+
 interface SerializerInterface
 {
     /**
-     * @param string       $json
-     * @param class-string $className Class name
+     * Deserialize JSON to object
      *
-     * @return object
+     * @param string              $json              JSON
+     * @param class-string|object $classNameOrObject Class name or object
+     *
+     * @return object Object
+     *
+     * @throws LogicException
      */
-    public function jsonToObject(string $json, string $className): object;
+    public function jsonToObject(string $json, string|object $classNameOrObject = stdClass::class): object;
 
     /**
+     * Encode array to JSON
+     *
      * @param array $array Array
      *
-     * @return string
+     * @return string JSON
      */
     public function arrayToJson(array $array): string;
 
     /**
-     * @param object $object
+     * Normalize object to array
      *
-     * @return null|array
+     * @param object $object Object
+     *
+     * @return array Array
+     *
+     * @throws LogicException
      */
-    public function objectToArray(object $object): null|array;
+    public function objectToArray(object $object): array;
 
     /**
-     * @param object $object
+     * Serialize object to JSON
      *
-     * @return string
+     * @param object $object Object
+     *
+     * @return string JSON
+     *
+     * @throws LogicException
      */
     public function objectToJson(object $object): string;
 
     /**
-     * @param mixed $data Data
+     * Decode JSON to array
      *
-     * @return null|array
+     * @param string $json JSON
+     *
+     * @return array<array-key, null|object{__tostring()}|scalar> Array
+     *
+     * @throws LogicException
      */
-    public function toArray(mixed $data): null|array;
+    public function jsonToArray(string $json): array;
 }
