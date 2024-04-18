@@ -1,0 +1,15 @@
+composer.lock
+compose.yaml
+compose.override.yaml
+*.gitignore.*
+
+/.vscode
+/.idea
+/.history
+
+###> symfony/framework-bundle ###
+/.env.local
+/.env.local.php
+/.env.*.local
+/vendor/
+###< symfony/framework-bundle ###
