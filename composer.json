@@ -1,0 +1,34 @@
+{
+    "name": "ovvio/serializer",
+    "description": "Handles serializing and deserializing data structures, including object graphs, into array structures or other formats like XML and JSON.",
+    "license": "proprietary",
+    "type": "library",
+    "keywords": ["serializer"],
+    "authors": [
+        {
+            "name": "Nazir Khusnutdinov",
+            "homepage": "https://nazir.pro",
+            "role": "Owner"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "symfony/serializer": "^7.0"
+    },
+    "autoload": {
+        "psr-4": { "Ovvio\\Component\\Serializer\\": "src/" }
+    },
+    "autoload-dev": {
+        "psr-4": { "Ovvio\\Component\\Serializer\\Tests\\": "tests/" }
+    },
+    "config": {
+        "allow-plugins": {
+            "symfony/flex": true
+        }
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-main": "1.x-dev"
+        }
+    }
+}
