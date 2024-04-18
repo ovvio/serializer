@@ -13,3 +13,22 @@ To install run this:
 ```bash
 composer require ovvio/serializer
 ```
+
+## Example
+
+```php
+use Ovvio\Component\Serializer\SerializerFactory;
+
+...
+
+$serializer = SerializerFactory::create();
+
+$data = <<<JSON
+{
+    "foo": "Foo",
+    "bar": "Bar"
+}
+JSON;
+
+$array = $serializer->toArray($data);
+```
