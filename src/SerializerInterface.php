@@ -36,6 +36,13 @@ interface SerializerInterface
     public function objectToJson(object $object): string;
 
     /**
+     * @param string $json JSON
+     *
+     * @return null|array
+     */
+    public function jsonToArray(string $json): null|array;
+
+    /**
      * @param mixed $data Data
      *
      * @return null|array

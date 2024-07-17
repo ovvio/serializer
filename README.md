@@ -4,7 +4,7 @@ Handles serializing and deserializing data structures, including object graphs, 
 
 ## Technical Requirements & Installation
 
-[PHP 8.2](https://www.php.net/releases/8.2/en.php) - [Installation and Configuration](https://www.php.net/manual/en/install.php)
+[PHP 8.3](https://www.php.net/releases/8.3/en.php) - [Installation and Configuration](https://www.php.net/manual/en/install.php)
 
 [Composer (System Requirements)](https://getcomposer.org/doc/00-intro.md#system-requirements)
 

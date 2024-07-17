@@ -1,11 +1,16 @@
+*.gitignore.*
+
+###> The others
 composer.lock
+auth.json
+
 compose.yaml
 compose.override.yaml
-*.gitignore.*
 
 /.vscode
 /.idea
 /.history
+###> The others
 
 ###> symfony/framework-bundle ###
 /.env.local

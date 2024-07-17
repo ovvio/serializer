@@ -8,6 +8,8 @@ use Symfony\Component\Serializer as SymfonySerializer;
 use Symfony\Component\Serializer\Encoder\JsonEncoder;
 use Symfony\Component\Serializer\Normalizer as Normalizer;
 
+use function json_validate;
+
 /**
  * Serializer
  */
@@ -74,6 +76,25 @@ final class Serializer implements SerializerInterface
         $json = $this->serializer->serialize($object, SymfonySerializer\Encoder\JsonEncoder::FORMAT);
 
         return $json;
+    }
+
+    /**
+     * @see SerializerInterface
+     */
+    public function jsonToArray(string $json): null|array
+    {
+        if (true === json_validate($json)) {
+            throw new \Exception('JSON verification error!', 0);
+        }
+
+        /** @var mixed $result */
+        $result = $this->serializer->decode($json, SymfonySerializer\Encoder\JsonEncoder::FORMAT);
+
+        if (null === $result) {
+            return null;
+        }
+
+        return (array) $result;
     }
 
     /**
