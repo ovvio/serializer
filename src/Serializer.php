@@ -38,6 +38,7 @@ final class Serializer implements SerializerInterface
     /**
      * @see SerializerInterface
      */
+    #[\Override]
     public function arrayToJson(array $array): string
     {
         return $this->serializer->encode($array, SymfonySerializer\Encoder\JsonEncoder::FORMAT);
@@ -46,6 +47,7 @@ final class Serializer implements SerializerInterface
     /**
      * @see SerializerInterface
      */
+    #[\Override]
     public function arrayToObject(array $array, string|object $classNameOrObject): object
     {
         $object = $classNameOrObject;
@@ -65,11 +67,12 @@ final class Serializer implements SerializerInterface
     /**
      * @see SerializerInterface
      */
+    #[\Override]
     public function jsonToArray(string $json): array
     {
         Specification\IsValidJsonSpecification::isSatisfiedBy($json);
 
-        /** @var array<array-key, null|object{__tostring()}|scalar> $array */
+        /** @var array<string|int, null|object{0: \Ovvio\Component\Serializer\__tostring}>()}|scalar> */
         $array = $this->serializer->decode($json, SymfonySerializer\Encoder\JsonEncoder::FORMAT);
 
         return $array;
@@ -78,6 +81,7 @@ final class Serializer implements SerializerInterface
     /**
      * @see SerializerInterface
      */
+    #[\Override]
     public function jsonToObject(string $json, string|object $classNameOrObject): object
     {
         Specification\IsValidJsonSpecification::isSatisfiedBy($json);
@@ -100,6 +104,7 @@ final class Serializer implements SerializerInterface
     /**
      * @see SerializerInterface
      */
+    #[\Override]
     public function objectToArray(object $object): array
     {
         $result = $this->serializer->normalize($object);
@@ -110,6 +115,7 @@ final class Serializer implements SerializerInterface
     /**
      * @see SerializerInterface
      */
+    #[\Override]
     public function objectToJson(object $object): string
     {
         $json = $this->serializer->serialize($object, SymfonySerializer\Encoder\JsonEncoder::FORMAT);

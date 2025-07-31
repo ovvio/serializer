@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Ovvio\Component\Serializer\Specification;
 
-use LogicException;
-
 use function json_validate;
 
 /**
@@ -16,7 +14,7 @@ final class IsValidJsonSpecification
     public static function isSatisfiedBy(string $json): void
     {
         if (false === json_validate($json)) {
-            throw new LogicException('JSON is not valid.', 0);
+            throw new \RuntimeException('JSON is not valid.', 0);
         }
     }
 }

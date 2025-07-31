@@ -4,8 +4,6 @@ declare(strict_types=1);
 
 namespace Ovvio\Component\Serializer\Specification;
 
-use LogicException;
-
 use function class_exists;
 use function substr;
 
@@ -17,7 +15,7 @@ final class IsValidClassSpecification
     public static function isSatisfiedBy(string $className): void
     {
         if (true === empty($className)) {
-            throw new LogicException('Unable to load class. Empty', 0);
+            throw new \RuntimeException('Unable to load class. Empty', 0);
         }
 
         if (substr($className, 0, 1) <> '\\') {
@@ -25,7 +23,7 @@ final class IsValidClassSpecification
         }
 
         if (false === class_exists($className, false)) {
-            throw new LogicException('Unable to load class: ' . $className, 0);
+            throw new \RuntimeException('Unable to load class: ' . $className, 0);
         }
     }
 }
