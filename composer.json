@@ -15,9 +15,10 @@
     "prefer-stable": true,
     "minimum-stability": "dev",
     "require": {
-        "php": ">=8.4",
-        "symfony/serializer": "^8.0",
-        "symfony/property-access": "^8.0"
+        "php": ">=8.5",
+        "symfony/serializer": "^8.1",
+        "symfony/property-access": "^8.1",
+        "ovvio/exceptions": "^1.0"
     },
     "autoload": {
         "psr-4": { "Ovvio\\Component\\Serializer\\": "src/" }
