@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Ovvio\Component\Serializer;
 
+use Ovvio\Component\Serializer\Exception\SerializerException;
+
 interface SerializerInterface
 {
     /**
@@ -23,7 +25,7 @@ interface SerializerInterface
      *
      * @return object Object
      *
-     * @throws \LogicException
+     * @throws SerializerException
      */
     public function arrayToObject(array $array, string|object $classNameOrObject): object;
 
@@ -34,7 +36,7 @@ interface SerializerInterface
      *
      * @return array<array-key, null|object{__tostring()}|scalar> Array
      *
-     * @throws \LogicException
+     * @throws SerializerException
      */
     public function jsonToArray(string $json): array;
 
@@ -46,7 +48,7 @@ interface SerializerInterface
      *
      * @return object Object
      *
-     * @throws \LogicException
+     * @throws SerializerException
      */
     public function jsonToObject(string $json, string|object $classNameOrObject): object;
 
@@ -57,7 +59,7 @@ interface SerializerInterface
      *
      * @return array Array
      *
-     * @throws \LogicException
+     * @throws SerializerException
      */
     public function objectToArray(object $object): array;
 
@@ -68,7 +70,7 @@ interface SerializerInterface
      *
      * @return string JSON
      *
-     * @throws \LogicException
+     * @throws SerializerException
      */
     public function objectToJson(object $object): string;
 }

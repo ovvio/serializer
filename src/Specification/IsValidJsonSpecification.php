@@ -4,6 +4,8 @@ declare(strict_types=1);
 
 namespace Ovvio\Component\Serializer\Specification;
 
+use Ovvio\Component\Serializer\Exception\SerializerException;
+
 use function json_validate;
 
 /**
@@ -11,10 +13,13 @@ use function json_validate;
  */
 final class IsValidJsonSpecification
 {
+    /**
+     * @throws SerializerException
+     */
     public static function isSatisfiedBy(string $json): void
     {
         if (false === json_validate($json)) {
-            throw new \RuntimeException('JSON is not valid.', 0);
+            throw new SerializerException('JSON is not valid.', 0);
         }
     }
 }
